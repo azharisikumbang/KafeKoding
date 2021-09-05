@@ -30,7 +30,6 @@
                       <td>Nama Mentor</td>
                       <td>Kelas</td>
                       <td>Status</td>
-                      <td>Aksi</td>
                     </tr>
                     </thead>
                     <tbody>

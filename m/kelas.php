@@ -45,7 +45,7 @@
                       <td><?php echo $data['kelas'];?></td>
                       <td><?php echo $data['kuota_kelas'];?></td>
                       <td><?php echo $data['mentor_kelas'];?></td>
-                      <td><?php echo $data['link_wa'];?></td>
+                      <td><a href="<?php echo $data['link_wa'];?>"><?php echo $data['kelas'];?></a></td>
                       <td><?php echo $data['status_kelas'];?></td>
                     </tr>
                     <?php } ?>
