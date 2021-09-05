@@ -57,23 +57,33 @@
                     <div class="row mb-3">
                       <label for="inputPassword3" class="col-sm-2 col-form-label">Jam Kelas</label>
                       <div class="col-sm-10">
-                        <input type="password" class="form-control" id="password" name="jam_kelas" value="<?php echo $data['jam_kelas'];?>" style="background: gainsboro; color: black; width:100%;">
+                        <input type="text" class="form-control" list="jam" id="password" name="jam_kelas" value="<?php echo $data['jam_kelas'];?>" style="background: gainsboro; color: black; width:100%;">
+                        <datalist id="jam">
+                          <?php 
+                          include '../koneksi.php';
+                          $query = mysqli_query($koneksi, "SELECT DISTINCT(jam_kelas) from kelas");
+                          while ($dax = mysqli_fetch_assoc($query)) { 
+                          ?>
+                            <option><?php echo $dax['jam_kelas']; ?></option>
+                          <?php } ?>
+                        </datalist>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="inputPassword3" class="col-sm-2 col-form-label">Status</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="status" name="status" value="<?php echo $data['status'];?>" style="background: gainsboro; color: black; width:100%;">
+                        <input type="text" class="form-control" id="status" name="status" value="<?php echo $data['status_kelas'];?>" style="background: gainsboro; color: black; width:100%;">
                       </div>
                     </div>
 
-                    <div class="form-check form-switch">
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Link Whatsapp Kelas</label>
                       <div class="col-sm-10">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="Rubah()">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Show Password</label>
+                        <input type="url" class="form-control" id="link_wa" name="link_wa" value="<?php echo $data['link_wa'];?>" style="background: gainsboro; color: black; width:100%;">
                       </div>
                     </div>
+
                     <button type="submit" class="btn btn-primary" name="submit" style="float: right;">Update Data</button>
                     <?php } ?>
                   </form>
