@@ -27,7 +27,7 @@
   margin: 0px;
   padding: 0px;
   -webkit-box-sizing: border-box !important;
-  box-sizing: border-box !important;
+          box-sizing: border-box !important;
   font-family: "poppins-regular";
   text-decoration: none !important;
   list-style: none !important;
@@ -106,7 +106,7 @@ section.section-hero .right-hero .img-box img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 
 section.section-aboutUs {
@@ -122,6 +122,8 @@ section.section-aboutUs .right-about h4 {
 
 section.section-aboutUs .right-about p {
   color: #68738b;
+  line-height: 28px;
+  font-size: 18px;
 }
 
 section.section-aboutUs .left-about .img-box {
@@ -133,7 +135,7 @@ section.section-aboutUs .left-about .img-box img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 
 section.section-kelas-tersedia {
@@ -145,11 +147,11 @@ section.section-kelas-tersedia .classes {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-bottom: 30px;
 }
 
@@ -162,7 +164,7 @@ section.section-kelas-tersedia .classes .box-img img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 
 section.section-kelas-tersedia .classes h5 {
@@ -236,5 +238,52 @@ footer .copyright {
 
 footer .copyright a {
   color: #fdb827;
+}
+
+.image-box-aff {
+  padding-top: 50px;
+  width: 100%;
+  margin-bottom: -10px;
+}
+
+.image-box-aff img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (max-width: 600) {
+  section.section-hero {
+    padding: 70px 0px;
+  }
+  section.section-hero .left-hero h1 {
+    color: #14274e;
+    font-family: "poppins-bold";
+    font-size: 1.5rem !important;
+    margin-bottom: 10px;
+  }
+  section.section-hero .left-hero p {
+    font-size: 1rem;
+    color: #68738b;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section.section-hero {
+    padding: 70px 0px;
+  }
+  section.section-hero .left-hero h1 {
+    color: #14274e;
+    font-family: "poppins-bold";
+    font-size: 1.8rem !important;
+    margin-bottom: 10px;
+  }
+  section.section-hero .left-hero p {
+    font-size: 1rem;
+    color: #68738b;
+    margin-bottom: 30px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
