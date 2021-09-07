@@ -12,6 +12,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="style/css/style.css">
 </head>
 <body>
@@ -22,25 +23,31 @@
 
             <!-- Page Content -->
             <div id="content" class="p-4 p-md-5 pt-5">
-                  <h3 align="center">Daftar Kelas Anda</h3>
+                  <h3 align="center">Pilih Kelas Anda</h3>
                   <table class="table table-dark table-striped" align="center" id="data">
                     <thead>
                     <tr align="center">
-                      <td>ID Peserta</td>
-                      <td>Kelas Pagi</td>
-                      <td>Kelas Siang</td>
-                      <td>Kelas Sore</td>
-                      <td>Status</td>
+                      <td>Kelas</td>
+                      <td>Jam Kelas</td>
+                      <td>Mentor</td>
+                      <td>Kuota</td>
+                      <td>Aksi</td>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr id="tampil" align="center">
-                      <td>007</td>
-                      <td>-</td>
-                      <td>JavaScript</td>
-                      <td>-</td>
-                      <td>Menunggu</td>
+                    <?php
+                    include '../koneksi.php';
+                    $query = mysqli_query($koneksi, "SELECT * FROM kelas") or die (mysqli_error());
+                    while($data = mysqli_fetch_assoc($query)){
+                    ?>
+                    <tr align="center">
+                      <td><?php echo $data['kelas'];?></td>
+                      <td><?php echo $data['jam_kelas'];?></td>
+                      <td>Lionel Messi</td>
+                      <td><?php echo $data['kuota_kelas'];?></td>
+                      <td><button class="rounded-circle border btn btn-info" style="size: 2px;" type="button"><i class="fa fa-plus-circle"></i></button></td>
                     </tr>
+                    <?php } ?>
                     </tbody>
                   </table>
             </div>

@@ -20,16 +20,19 @@
  -->	  		<div class="img bg-wrap text-center py-4">
 	  			<div class="user-logo">
 	  				<h3>
-              181100014 <!-- NIP -->
+              007 <!-- NIP -->
             </h3>
             <h3>
-              Kelvin Mulyawan <!-- Nama Pegawai -->
+              Cristiano Ronaldo <!-- Nama Pegawai -->
             </h3>
 	  			</div>
 	  		</div>
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="main.php"><span class="fa fa-home mr-3"></span>Main Page</a>
+          </li>
+          <li class="active">
+            <a href="addkelas.php"><span class="fa fa-plus mr-3"></span>Daftar Kelas</a>
           </li>
           <li class="active">
             <a href="ekelas.php"><span class="fa fa-user mr-3"></span>Edit Kelas</a>
