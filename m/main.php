@@ -28,19 +28,30 @@
                     <tr align="center">
                       <td>Kelas</td>
                       <td>ID Peserta</td>
-                      <td>Nama Peserta</td>
-                      <td>Nilai Akhir</td>
                       <td>Status</td>
+                      <td>Nilai Akhir</td>
+                      <td>Keterangan</td>
+                      <td colspan="2">Aksi</td>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    include '../koneksi.php';
+                    $nama = $_SESSION['nama'];
+                    $cari = mysqli_query($koneksi,"SELECT kelas FROM mentor WHERE nama_mentor = '$nama'");
+                    $data = mysqli_fetch_assoc($cari);
+                    $kls = $data['kelas'];
+                    $query = mysqli_query($koneksi, "SELECT * FROM kelas_peserta WHERE kelas = '$kls'");
+                    while ($dt = mysqli_fetch_assoc($query)) { ?>
                     <tr id="tampil" align="center">
-                      <td>Python</td>
-                      <td>181100014</td>
-                      <td>Kelvin Mulyawan</td>
-                      <td>90</td>
-                      <td>Lulus</td>
+                      <td><?php echo $kls; ?></td>
+                      <td><?php echo $dt['bp_peserta'];?></td>
+                      <td><?php echo $dt['status'];?></td>
+                      <td><?php echo $dt['nilai_akhir'];?></td>
+                      <td><?php echo $dt['keterangan'];?></td>
+                      <td><i class="fa fa-pencil">&nbsp;|&nbsp;<i class="fa fa-trash"><i></i></td>
                     </tr>
+                    <?php } ?>
                     </tbody>
                   </table>
             </div>

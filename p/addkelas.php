@@ -43,9 +43,9 @@
                     <tr align="center">
                       <td><?php echo $data['kelas'];?></td>
                       <td><?php echo $data['jam_kelas'];?></td>
-                      <td>Lionel Messi</td>
+                      <td><?php echo $data['mentor_kelas'];?></td>
                       <td><?php echo $data['kuota_kelas'];?></td>
-                      <td><button class="rounded-circle border btn btn-info" style="size: 2px;" type="button"><i class="fa fa-plus-circle"></i></button></td>
+                      <td><a href="add.php?kode_kelas=<?php echo $data['kode_kelas'];?>" class="btn btn-info btn-circle btn-circle-sm m-1" type="button"><i class="fa fa-plus"></i></a>
                     </tr>
                     <?php } ?>
                     </tbody>

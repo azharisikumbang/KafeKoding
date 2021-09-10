@@ -22,41 +22,48 @@
 
             <!-- Page Content -->
             <div id="content" class="p-4 p-md-5 pt-5">
-                  <h4 align="center">Edit Data Admin LLDIKTI Wilayah X</h4>
+                  <h4 align="center">Edit Data Peserta</h4>
 
                   <!-- Form Layout --> 
                   <?php 
                   include '../koneksi.php';
-                  session_start();
-                  $bp_peserta = $_SESSION['bp_peserta'];
+                  $bp_peserta = $_SESSION['id'];
                   $query = mysqli_query($koneksi, "SELECT * FROM peserta WHERE bp_peserta = '$bp_peserta'") or die (mysqli_error());
                   while ($data = mysqli_fetch_assoc($query)) {
                   ?>
                   <form class="form-group" method="POST">
                   <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">ID Peserta</label>
                       <div class="col-sm-10">
-                        <input type="hidden" class="form-control" name="ID" value="<?php echo $data['ID'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
+                        <input type="text" class="form-control" name="bp_peserta" value="<?php echo $data['bp_peserta'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
                       </div>
                     </div>
                     
                    <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">NIP</label>
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Nama Peserta</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="username" value="<?php echo $data['NIP'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
+                        <input type="text" class="form-control" name="nama_peserta" value="<?php echo $data['nama_peserta'];?>" style="background: gainsboro; color: black; width:100%;">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Nama Pegawai</label>
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Asal Kampus</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="Nama" value="<?php echo $data['Nama'];?>" style="background: gainsboro; color: black; width:100%;">
+                        <input type="text" class="form-control" name="asal_kampus" value="<?php echo $data['asal_kampus'];?>" style="background: gainsboro; color: black; width:100%;">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">E-Mail</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" name="email" value="<?php echo $data['email'];?>" style="background: gainsboro; color: black; width:100%;">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
                       <div class="col-sm-10">
-                        <input type="password" class="form-control" id="password" name="password" value="<?php echo $data['Password'];?>" style="background: gainsboro; color: black; width:100%;">
+                        <input type="password" class="form-control" id="password" name="password" value="<?php echo $data['password'];?>" style="background: gainsboro; color: black; width:100%;">
                       </div>
                     </div>
 
@@ -73,21 +80,22 @@
             </div>
             <!-- End of Page Content -->
       </div>
-      <script src="../style/js/show.js"></script>
+      <script src="style/js/show.js"></script>
 </body>
 </html>
 
 <?php
-
 include '../koneksi.php';
 
 if (isset($_POST['submit'])) {
   
-$ID = $_POST['ID'];
-$Nama = $_POST['Nama'];
-$Password = $_POST['password'];
+$bp_peserta = $_POST['bp_peserta'];
+$nama_peserta = $_POST['nama_peserta'];
+$asal_kampus = $_POST['asal_kampus'];
+$email = $_POST['email'];
+$password = $_POST['password'];
  
-mysqli_query($koneksi, "UPDATE datapegawai SET Nama='$Nama', Password='$Password' WHERE ID='$ID'") or die(mysqli_error());
+mysqli_query($koneksi, "UPDATE peserta SET nama_peserta='$nama_peserta', password='password', asal_kampus='$asal_kampus', email='$email' WHERE bp_peserta='$bp_peserta'") or die(mysqli_error());
 header("location:profile.php");
 }
 ?>

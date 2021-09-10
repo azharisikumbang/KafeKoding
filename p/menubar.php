@@ -19,11 +19,11 @@
         </div>
  -->	  		<div class="img bg-wrap text-center py-4">
 	  			<div class="user-logo">
-	  				<h3>
-              007 <!-- NIP -->
+          <h3>
+            <?php session_start(); echo $_SESSION['id'];?> <!-- NIP -->
             </h3>
             <h3>
-              Cristiano Ronaldo <!-- Nama Pegawai -->
+              <?php echo $_SESSION['nama'];?> <!-- Nama Pegawai -->
             </h3>
 	  			</div>
 	  		</div>
@@ -34,14 +34,6 @@
           <li class="active">
             <a href="addkelas.php"><span class="fa fa-plus mr-3"></span>Daftar Kelas</a>
           </li>
-          <li class="active">
-            <a href="ekelas.php"><span class="fa fa-user mr-3"></span>Edit Kelas</a>
-          </li>
-          <div class="show">
-          <li class="active">
-            <a href="link.php"><span class="fa fa-link mr-3"></span>Link Kelas</a>
-          </li>
-          </div>
           <li class="active">
             <a href="tugas.php"><span class="fa fa-tasks mr-3"></span>Daftar Tugas</a>
           </li>

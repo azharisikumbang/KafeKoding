@@ -20,10 +20,10 @@
  -->	  		<div class="img bg-wrap text-center py-4">
 	  			<div class="user-logo">
 	  				<h3>
-              181100014 <!-- NIP -->
+            <?php session_start(); echo $_SESSION['id'];?> <!-- NIP -->
             </h3>
             <h3>
-              Kelvin Mulyawan <!-- Nama Pegawai -->
+              <?php echo $_SESSION['nama'];?> <!-- Nama Pegawai -->
             </h3>
 	  			</div>
 	  		</div>

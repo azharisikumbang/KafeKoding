@@ -27,20 +27,26 @@
                     <thead>
                     <tr align="center">
                       <td>ID Peserta</td>
-                      <td>Kelas Pagi</td>
-                      <td>Kelas Siang</td>
-                      <td>Kelas Sore</td>
+                      <td>Kelas</td>
+                      <td>Jam Kelas</td>
+                      <td>Link Whatsapp</td>
                       <td>Status</td>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    include '../koneksi.php';
+                    $id = $_SESSION['id'];
+                    $query = mysqli_query($koneksi, "SELECT * FROM kelas_peserta WHERE bp_peserta = '$id'") or die (mysqli_error());
+                    while ($data = mysqli_fetch_assoc($query)) { ?>
                     <tr id="tampil" align="center">
-                      <td>007</td>
-                      <td>-</td>
-                      <td>JavaScript</td>
-                      <td>-</td>
-                      <td>Menunggu</td>
+                      <td><?php echo $data['bp_peserta'];?></td>
+                      <td><?php echo $data['kelas'];?></td>
+                      <td><?php echo $data['jam_kelas'];?></td>
+                      <td><?php echo $data['link_wa'];?></td>
+                      <td><?php echo $data['status'];?></td>
                     </tr>
+                    <?php } ?>
                     </tbody>
                   </table>
             </div>
