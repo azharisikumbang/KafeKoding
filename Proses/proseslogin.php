@@ -14,12 +14,14 @@ if (isset($_POST['submit'])) {
 
         if($data['status']=='Mentor'){
             session_start();
+            $_SESSION['Login'] = true;
             $_SESSION['id'] = $data['id'];
             $_SESSION['nama'] = $data['nama'];
             header('location:../m/main.php');
         }
         elseif($data['status']=='Peserta'){
             session_start();
+            $_SESSION['Login'] = true;
             $_SESSION['id'] = $data['id'];
             $_SESSION['nama'] = $data['nama'];
             header('location:../p/main.php');

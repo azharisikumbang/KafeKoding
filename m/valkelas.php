@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (!isset($_SESSION['Login'])) {
+  header('location:../loginRegister.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,13 +47,6 @@
                       </div>
                     </div>
 
-                    <div class="row mb-3">
-                     <label for="inputPassword3" class="col-sm-2 col-form-label">Nilai Tugas</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nilai_tugas" value="<?php echo $data['nilai_tugas'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
-                      </div>
-                    </div>
-                    
                     <div class="row mb-3">
                      <label for="inputPassword3" class="col-sm-2 col-form-label">Nilai Akhir</label>
                       <div class="col-sm-10">

@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (!isset($_SESSION['Login'])) {
+  header('location:../loginRegister.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
