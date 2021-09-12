@@ -35,9 +35,6 @@
             <a href="addkelas.php"><span class="fa fa-plus mr-3"></span>Daftar Kelas</a>
           </li>
           <li class="active">
-            <a href="tugas.php"><span class="fa fa-tasks mr-3"></span>Daftar Tugas</a>
-          </li>
-          <li class="active">
             <a href="profile.php"><span class="fa fa-cog mr-3"></span>Edit Profile</a>
           </li>
           <li class="active">
