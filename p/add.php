@@ -17,11 +17,8 @@ $statement = "INSERT INTO kelas_peserta VALUES('$bp_peserta','$kelas','$jam','$l
 $run = mysqli_query($koneksi, $statement);
 
 if (mysqli_error($run)) {
-    echo "<script>
-    alert('Hello');
-    document.location='p/addkelas.php';
-    </script>";
+    header('location:add.php');
 } else {
-    header('location:addkelas.php');
+    header('location:main.php');
 }
 ?>

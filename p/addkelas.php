@@ -37,7 +37,7 @@
                     <tbody>
                     <?php
                     include '../koneksi.php';
-                    $query = mysqli_query($koneksi, "SELECT * FROM kelas") or die (mysqli_error());
+                    $query = mysqli_query($koneksi, "SELECT * FROM kelas WHERE kuota_kelas > 0") or die (mysqli_error());
                     while($data = mysqli_fetch_assoc($query)){
                     ?>
                     <tr align="center">

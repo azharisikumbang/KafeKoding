@@ -49,7 +49,7 @@
                       <td><?php echo $dt['status'];?></td>
                       <td><?php echo $dt['nilai_akhir'];?></td>
                       <td><?php echo $dt['keterangan'];?></td>
-                      <td><i class="fa fa-pencil">&nbsp;|&nbsp;<i class="fa fa-trash"><i></i></td>
+                      <td><a href="valkelas.php?bp_peserta=<?php echo $data['bp_peserta'];?>&kelas=<?php echo $data['kelas'];?>"><i class="fa fa-pencil"></i></a>&nbsp;|&nbsp;<i class="fa fa-trash"><i></i></td>
                     </tr>
                     <?php } ?>
                     </tbody>

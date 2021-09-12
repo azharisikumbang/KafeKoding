@@ -31,6 +31,7 @@
                       <td>Jam Kelas</td>
                       <td>Link Whatsapp</td>
                       <td>Status</td>
+                      <td>Hapus</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -45,6 +46,7 @@
                       <td><?php echo $data['jam_kelas'];?></td>
                       <td><?php echo $data['link_wa'];?></td>
                       <td><?php echo $data['status'];?></td>
+                      <td><a href="deletekelas.php?bp_peserta=<?php echo $data['bp_peserta'];?>&kelas=<?php echo $data['kelas'];?>" style="color: white;"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     <?php } ?>
                     </tbody>
