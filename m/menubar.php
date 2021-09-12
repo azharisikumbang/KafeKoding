@@ -38,9 +38,6 @@
             <a href="mentor.php"><span class="fa fa-tasks mr-3"></span>Mentor</a>
           </li>
           <li class="active">
-            <a href="classediting.php"><span class="fa fa-cog mr-3"></span>Edit Kelas</a>
-          </li>
-          <li class="active">
             <a href="profileediting.php"><span class="fa fa-cog mr-3"></span>Edit Profile</a>
           </li>
           <li class="active">

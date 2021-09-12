@@ -9,7 +9,10 @@ if (isset($_POST['submit'])) {
     $status = $_POST['status'];
 
     mysqli_query($koneksi, "INSERT INTO mentor VALUES('$id_mentor','$nama_mentor','$kelas','$password','$status')") or die(mysqli_error());
-    mysqli_query($koneksi, "INSERT INTO login VALUES('$id_mentor','$password','$status','$nama_mentor')") or die(mysqli_error());
+    if ($status == 'Mentor') {
+        mysqli_query($koneksi, "INSERT INTO login VALUES('$id_mentor','$password','$status','$nama_mentor')") or die(mysqli_error());
+    }
+    
     header('location:mentor.php');
 }
 ?>

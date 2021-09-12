@@ -37,6 +37,7 @@
                       <td>Mentor Kelas</td>
                       <td>Link Kelas</td>
                       <td>Status Kelas</td>
+                      <td>Aksi</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -52,6 +53,7 @@
                       <td><?php echo $data['mentor_kelas'];?></td>
                       <td><a href="<?php echo $data['link_wa'];?>"><?php echo $data['kelas'];?></a></td>
                       <td><?php echo $data['status_kelas'];?></td>
+                      <td><a href="editkelas.php?kode_kelas=<?php echo $data['kode_kelas'];?>" style="color:white"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a><i class="fa fa-trash"></i></a></td>
                     </tr>
                     <?php } ?>
                     </tbody>

@@ -40,7 +40,7 @@
                     <tbody>
                     <?php
                     include '../koneksi.php';
-                    $query = mysqli_query($koneksi, "SELECT * FROM mentor") or die (mysqli_error());
+                    $query = mysqli_query($koneksi, "SELECT * FROM mentor ORDER BY kelas") or die (mysqli_error());
                     while($data = mysqli_fetch_assoc($query)){
                     ?>
                     <tr id="tampil" align="center">

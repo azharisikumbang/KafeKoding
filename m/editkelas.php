@@ -28,32 +28,43 @@
               <div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
               </div>
               <h4 align="center">Daftar Kelas Kafe Koding</h4>
-              <form class="form-group" method="POST" action="addkelaspro.php" style="width: 100%">
+              <?php
+              include '../koneksi.php';
+              $kode_kelas = $_GET['kode_kelas'];
+              $query = mysqli_query($koneksi, "SELECT * FROM kelas WHERE kode_kelas = '$kode_kelas'") or die (mysqli_error());
+              while ($data = mysqli_fetch_assoc($query)) { ?>
+              <form class="form-group" method="POST" action="editkelaspro.php" style="width: 100%">
                     <div class="row mb-3">
                       <label class="col-sm-2 col-form-label">Kode Kelas</label>
                       <div class="col-sm-10">
-                        <input type="number" class="form-control" name="kode_kelas" style="background: gainsboro; color: black; width: 100%;">
+                        <input type="number" class="form-control" value="<?php echo $data['kode_kelas'];?>" name="kode_kelas" style="background: gainsboro; color: black; width: 100%;">
                       </div>
                     </div>
                     
                     <div class="row mb-3">
                       <label class="col-sm-2 col-form-label">Kelas</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="kelas" style="background: gainsboro; color: black; width: 100%;">
+                        <input type="text" class="form-control" name="kelas" value="<?php echo $data['kelas'];?>" style="background: gainsboro; color: black; width: 100%;">
                       </div>
                     </div>
 
                     <div class="row mb-3" id="mentor">
                       <label class="col-sm-2 col-form-label">Nama Mentor</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="mentor_kelas[]" style="background: gainsboro; color: black; width: 100%;" list="nama_mentor">
+                        <?php 
+                        $nm = explode("<br>",$data['mentor_kelas']);
+                        $ln = count($nm);
+                        for ($i=0; $i <= $ln - 1 ; $i++) {
+                        ?>
+                        <input type="text" class="form-control" name="mentor_kelas[]" value="<?php echo $nm[$i];?>" style="background: gainsboro; color: black; width: 100%;" list="nama_mentor"><br>
+                        <?php } ?>
                         <datalist id="nama_mentor">
                           <?php 
                           include '../koneksi.php';
                           $query = mysqli_query($koneksi, "SELECT DISTINCT(nama_mentor) from mentor");
-                          while ($data = mysqli_fetch_assoc($query)) { 
+                          while ($data9 = mysqli_fetch_assoc($query)) { 
                           ?>
-                            <option><?php echo $data['nama_mentor']; ?></option>
+                            <option><?php echo $data9['nama_mentor']; ?></option>
                           <?php } ?>
                         </datalist>
                       </div>
@@ -62,7 +73,7 @@
                     <div class="row mb-3">
                       <label class="col-sm-2 col-form-label">Link Whatsapp</label>
                       <div class='col-sm-10'>
-                        <input type='text' class='form-control' name='link_wa' style='background: gainsboro; color: black; width: 100%;'>
+                        <input type='text' class='form-control' name='link_wa' value="<?php echo $data['link_wa'];?>" style='background: gainsboro; color: black; width: 100%;'>
                         <br>
                       </div>
                     </div>
@@ -71,13 +82,13 @@
                       <label class="col-sm-2 col-form-label">Jam Kelas, Kuota</label>
                       <div class='col-sm-10'>
                         <div class="form-inline row">
-                        <input type='text' class='form-control' name="jam_kelas" style='background: gainsboro; color: black; width: 600px; margin-left: 15px' list="jam">&nbsp;&nbsp;
+                        <input type='text' class='form-control' name="jam_kelas" value="<?php echo $data['jam_kelas'];?>" style='background: gainsboro; color: black; width: 600px; margin-left: 15px' list="jam">&nbsp;&nbsp;
                         <datalist id="jam">
                             <option>08.00-10.00</option>
                             <option>10.00-12.10</option>
                             <option>13.00-15.30</option>
                         </datalist>
-                        <input type="text" name="kuota_kelas" class="form-control" style="background-color: gainsboro; width: 97px;" oninput="Count()">
+                        <input type="text" name="kuota_kelas" class="form-control" value="<?php echo $data['kuota_kelas'];?>" style="background-color: gainsboro; width: 97px;" oninput="Count()">
                         </div>
                         <br>
                       </div>
@@ -86,7 +97,7 @@
                     <div class="row mb-3">
                       <label class="col-sm-2 col-form-label">Status</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="status_kelas" style="background: gainsboro; color: black; width: 100%;" list="stats">
+                        <input type="text" class="form-control" value="<?php echo $data['status_kelas'];?>" name="status_kelas" style="background: gainsboro; color: black; width: 100%;" list="stats">
                         <datalist id="stats">
                             <option>Buka</option>
                             <option>Tutup</option>
@@ -98,6 +109,7 @@
                     <input type="reset" class="btn btn-danger">
                     <button class="btn btn-primary" style="float: right;" name="submit">Hasil</button>
               </form>
+              <?php } ?>
             </div>
             <!-- End of Page Content -->
       </div>

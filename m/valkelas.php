@@ -27,50 +27,31 @@
                   <!-- Form Layout --> 
                   <?php 
                   include '../koneksi.php';
-                  
-                  $query = mysqli_query($koneksi, "SELECT * FROM mentor WHERE id_mentor = '$id_mentor'") or die (mysqli_error());
+                  $bp_peserta = $_GET['bp_peserta'];
+                  $kelas = $_GET['kelas'];
+                  $query = mysqli_query($koneksi, "SELECT * FROM kelas_peserta WHERE bp_peserta = '$bp_peserta' AND kelas = '$kelas'") or die (mysqli_error());
                   while ($data = mysqli_fetch_assoc($query)) {
                   ?>
                   <form class="form-group" method="POST">
-                  <div class="row mb-3">
-                     <label for="inputPassword3" class="col-sm-2 col-form-label">ID Mentor</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" name="id_mentor" value="<?php echo $data['id_mentor'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
-                      </div>
-                    </div>
                     
                    <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Nama Mentor</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nama_mentor" value="<?php echo $data['nama_mentor'];?>" style="background: gainsboro; color: black; width:100%;">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Kelas</label>
-                      <div class="col-sm-10">
-                        <input type="kelas" class="form-control" id="kelas" name="kelas" value="<?php echo $data['kelas'];?>" style="background: gainsboro; color: black; width:100%;">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                      <div class="col-sm-10">
-                        <input type="password" class="form-control" id="password" name="password" value="<?php echo $data['password'];?>" style="background: gainsboro; color: black; width:100%;">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
                       <label for="inputPassword3" class="col-sm-2 col-form-label">Status</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" id="status" name="status" value="<?php echo $data['status'];?>" style="background: gainsboro; color: black; width:100%;">
                       </div>
                     </div>
 
-                    <div class="form-check form-switch">
+                    <div class="row mb-3">
+                     <label for="inputPassword3" class="col-sm-2 col-form-label">Nilai Tugas</label>
                       <div class="col-sm-10">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="Rubah()">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Show Password</label>
+                        <input type="text" class="form-control" name="nilai_tugas" value="<?php echo $data['nilai_tugas'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
+                      </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                     <label for="inputPassword3" class="col-sm-2 col-form-label">Nilai Akhir</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nilai_akhir" value="<?php echo $data['nilai_akhir'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary" name="submit" style="float: right;">Update Data</button>
@@ -80,6 +61,5 @@
             </div>
             <!-- End of Page Content -->
       </div>
-      <script src="style/js/show.js"></script>
 </body>
 </html>
