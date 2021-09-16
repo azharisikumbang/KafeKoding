@@ -28,7 +28,7 @@ if (!isset($_SESSION['Login'])) {
 
             <!-- Page Content -->
             <div id="content" class="p-4 p-md-5 pt-5">
-                  <h4 align="center">Edit Data Mentor</h4>
+                  <h4 align="center">Memberi Nilai Peserta</h4>
 
                   <!-- Form Layout --> 
                   <?php 
@@ -38,19 +38,33 @@ if (!isset($_SESSION['Login'])) {
                   $query = mysqli_query($koneksi, "SELECT * FROM kelas_peserta WHERE bp_peserta = '$bp_peserta' AND kelas = '$kelas'") or die (mysqli_error());
                   while ($data = mysqli_fetch_assoc($query)) {
                   ?>
-                  <form class="form-group" method="POST">
-                    
+                  <form class="form-group" method="POST" action="prosesval.php">
+                   
+                  <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">ID Peserta</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="status" name="bp_peserta" value="<?php echo $data['bp_peserta'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
+                      </div>
+                    </div>
+
+                  <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Kelas</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="status" name="kelas" value="<?php echo $data['kelas'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
+                      </div>
+                    </div>
+
                    <div class="row mb-3">
                       <label for="inputPassword3" class="col-sm-2 col-form-label">Status</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="status" name="status" value="<?php echo $data['status'];?>" style="background: gainsboro; color: black; width:100%;">
+                        <input type="text" class="form-control" id="status" name="status" value="<?php echo $data['status'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                      <label for="inputPassword3" class="col-sm-2 col-form-label">Nilai Akhir</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nilai_akhir" value="<?php echo $data['nilai_akhir'];?>" style="background: gainsboro; color: black; width:100%;" readonly>
+                        <input type="text" class="form-control" name="nilai_akhir" value="<?php echo $data['nilai_akhir'];?>" style="background: gainsboro; color: black; width:100%;">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary" name="submit" style="float: right;">Update Data</button>
@@ -62,3 +76,4 @@ if (!isset($_SESSION['Login'])) {
       </div>
 </body>
 </html>
+

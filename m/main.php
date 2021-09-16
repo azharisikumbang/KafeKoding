@@ -55,7 +55,8 @@ if (!isset($_SESSION['Login'])) {
                       <td><?php echo $dt['status'];?></td>
                       <td><?php echo $dt['nilai_akhir'];?></td>
                       <td><?php echo $dt['keterangan'];?></td>
-                      <td><a href="valkelas.php?bp_peserta=<?php echo $dt['bp_peserta'];?>&kelas=<?php echo $data['kelas'];?>"><i class="fa fa-pencil"></i></a>&nbsp;|&nbsp;<i class="fa fa-trash"><i></i></td>
+                      <td><a href="valkelas.php?bp_peserta=<?php echo $dt['bp_peserta'];?>&kelas=<?php echo $data['kelas'];?>"><i class="fa fa-pencil"></i></a>&nbsp;|&nbsp;
+                      <a href="deletepeserta.php?bp_peserta=<?php echo $dt['bp_peserta'];?>&kelas=<?php echo $data['kelas'];?>"><i class="fa fa-trash"><i></i></a></td>
                     </tr>
                     <?php } ?>
                     </tbody>

@@ -20,7 +20,7 @@
  -->	  		<div class="img bg-wrap text-center py-4">
 	  			<div class="user-logo">
           <h3>
-            <?php session_start(); echo $_SESSION['id'];?> <!-- NIP -->
+            <?php echo $_SESSION['id'];?> <!-- NIP -->
             </h3>
             <h3>
               <?php echo $_SESSION['nama'];?> <!-- Nama Pegawai -->

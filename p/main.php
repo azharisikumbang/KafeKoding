@@ -50,7 +50,7 @@ if (!isset($_SESSION['Login'])) {
                       <td><?php echo $data['bp_peserta'];?></td>
                       <td><?php echo $data['kelas'];?></td>
                       <td><?php echo $data['jam_kelas'];?></td>
-                      <td><?php echo $data['link_wa'];?></td>
+                      <td><a href=<?php echo $data['link_wa'];?>><?php echo $data['kelas'];?></a></td>
                       <td><?php echo $data['status'];?></td>
                       <td><a href="deletekelas.php?bp_peserta=<?php echo $data['bp_peserta'];?>&kelas=<?php echo $data['kelas'];?>" style="color: white;"><i class="fa fa-trash"></i></a></td>
                     </tr>
