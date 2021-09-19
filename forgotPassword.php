@@ -23,11 +23,15 @@
       <div class="row align-items-center justify-content-center" style="height: 100vh">
         <div class="col-12 col-lg-6 align-items-center justify-content-center">
           <div class="card" style="padding: 50px 0px; border-radius: 10px">
-            <form action="#" class="sign-in-form" style="padding-top: 50px; padding-bottom: 50px" method="POST">
+            <form class="sign-in-form" action="Proses/passedit.php" style="padding-top: 50px; padding-bottom: 50px" method="POST">
               <h3 class="title" style="font-weight: 600">Forgot Password</h3>
               <div class="input-field">
                 <i class="fas fa-address-card"></i>
                 <input type="text" placeholder="Nomor Induk Mahasiswa" name="id">
+              </div>
+              <div class="input-field">
+                <i class="fas fa-key"></i>
+                <input type="password" placeholder="Password" name="password">
               </div>
               <input type="submit" value="Kirim" name="submit" class="btn btn-solid solid" />
             </form>
@@ -42,13 +46,3 @@
     <script src="libraries/bootstrap/js/bootstrap.js"></script>
   </body>
 </html>
-
-
-<?php 
-if (isset($_POST['submit'])) {
-  $id = $_POST['id'];
-
-  mysqli_query($koneksi, "UPDATE login SET password = 'Kafekoding' WHERE id = '$id'");
-  header('location:loginRegister.php');
-}
-?>
