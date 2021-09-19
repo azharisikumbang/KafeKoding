@@ -29,7 +29,7 @@
                 <i class="fas fa-address-card"></i>
                 <input type="text" placeholder="Nomor Induk Mahasiswa" />
               </div>
-              <input type="submit" value="Send" class="btn btn-solid solid" />
+              <input type="submit" value="Kirim" class="btn btn-solid solid" />
             </form>
           </div>
         </div>

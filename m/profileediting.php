@@ -33,12 +33,11 @@ if (!isset($_SESSION['Login'])) {
                   <!-- Form Layout --> 
                   <?php 
                   include '../koneksi.php';
-                  // session_start();
-                  $id_mentor = '201100032';
+                  $id_mentor = $_GET['id_mentor'];
                   $query = mysqli_query($koneksi, "SELECT * FROM mentor WHERE id_mentor = '$id_mentor'") or die (mysqli_error());
                   while ($data = mysqli_fetch_assoc($query)) {
                   ?>
-                  <form class="form-group" method="POST">
+                  <form class="form-group" method="POST" action="profileproses.php">
                   <div class="row mb-3">
                      <label for="inputPassword3" class="col-sm-2 col-form-label">ID Mentor</label>
                       <div class="col-sm-10">
@@ -56,7 +55,16 @@ if (!isset($_SESSION['Login'])) {
                     <div class="row mb-3">
                       <label for="inputPassword3" class="col-sm-2 col-form-label">Kelas</label>
                       <div class="col-sm-10">
-                        <input type="kelas" class="form-control" id="kelas" name="kelas" value="<?php echo $data['kelas'];?>" style="background: gainsboro; color: black; width:100%;">
+                        <input type="kelas" class="form-control" id="kelas" name="kelas" value="<?php echo $data['kelas'];?>" style="background: gainsboro; color: black; width:100%;" list="list_kelas">
+                        <datalist id="list_kelas">
+                          <?php 
+                          include '../koneksi.php';
+                          $query = mysqli_query($koneksi, "SELECT DISTINCT(kelas) from kelas");
+                          while ($datax = mysqli_fetch_assoc($query)) { 
+                          ?>
+                            <option><?php echo $datax['kelas']; ?></option>
+                          <?php } ?>
+                        </datalist>
                       </div>
                     </div>
 
@@ -87,21 +95,6 @@ if (!isset($_SESSION['Login'])) {
             </div>
             <!-- End of Page Content -->
       </div>
-      <script src="../style/js/show.js"></script>
+      <script src="style/js/show.js"></script>
 </body>
 </html>
-
-<?php
-
-include '../koneksi.php';
-
-if (isset($_POST['submit'])) {
-  
-$ID = $_POST['ID'];
-$Nama = $_POST['Nama'];
-$Password = $_POST['password'];
- 
-mysqli_query($koneksi, "UPDATE datapegawai SET Nama='$Nama', Password='$Password' WHERE ID='$ID'") or die(mysqli_error());
-header("location:profile.php");
-}
-?>

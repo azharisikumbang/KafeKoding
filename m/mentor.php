@@ -41,12 +41,13 @@ if (!isset($_SESSION['Login'])) {
                       <td>Nama Mentor</td>
                       <td>Kelas</td>
                       <td>Status</td>
+                      <td>Aksi</td>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
                     include '../koneksi.php';
-                    $query = mysqli_query($koneksi, "SELECT * FROM mentor ORDER BY kelas") or die (mysqli_error());
+                    $query = mysqli_query($koneksi, "SELECT * FROM mentor ORDER BY status") or die (mysqli_error());
                     while($data = mysqli_fetch_assoc($query)){
                     ?>
                     <tr id="tampil" align="center">
@@ -54,6 +55,7 @@ if (!isset($_SESSION['Login'])) {
                       <td><?php echo $data['nama_mentor'];?></td>
                       <td><?php echo $data['kelas'];?></td>
                       <td><?php echo $data['status'];?></td>
+                      <td><a href="profileediting.php?id_mentor=<?php echo $data['id_mentor'];?>"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="deletementor.php?id_mentor=<?php echo $data['id_mentor'];?>"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     <?php } ?>
                     </tbody>
