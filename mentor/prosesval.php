@@ -12,5 +12,5 @@ if (isset($_POST['submit'])) {
       }
       
       mysqli_query($koneksi, "UPDATE kelas_peserta SET nilai_akhir = '$nilai_akhir', keterangan = '$keterangan' WHERE bp_peserta = '$bp' AND kelas='$kelas'") or die(mysqli_error());
-      header('location:main.php');
+      header('location:daftarPeserta.php');
 }?>

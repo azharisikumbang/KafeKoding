@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if (!isset($_SESSION['Login'])) {
+if (!isset($_SESSION['login'])) {
   header('location:../loginRegister.php');
 }
 ?>
