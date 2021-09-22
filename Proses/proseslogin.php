@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) {
             header('location:../peserta/main.php');
         }
         else{
+            
             header('location:../loginRegister.php');
         }
     }
