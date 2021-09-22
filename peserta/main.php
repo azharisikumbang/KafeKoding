@@ -171,42 +171,6 @@ if (!isset($_SESSION['login'])) {
       });
     </script>
 
-    <div class="modal fade" id="EditDataPesertaModal">
-    <div class="modal-dialog">
-        <div class="modal-content"> 
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Data Peserta</h5> 
-            </div>
-
-            <div class="modal-body">
-              <div class="form-group">
-                <?php
-                include '../koneksi.php';
-                $query = mysqli_query($koneksi, "SELECT * FROM data_peserta WHERE id_peserta = $id_peserta")or die(mysqli_error());
-                while ($data = mysqli_fetch_assoc($query)) {
-                ?>
-                <form method="POST" action="../Proses/editdatapeserta.php">
-                  <label>ID Peserta</label>
-                  <input name="id_peserta" class="form-control" value="<?php echo $data['id_peserta'];?>" readonly>
-                  <label>Nama Peserta</label>
-                  <input type="text" name="nama_peserta" class="form-control" value="<?php echo $data['nama_peserta'];?>">
-                  <label>Nomor Telepon</label>
-                  <input name="no_telp" class="form-control" value="<?php echo $data['no_telp'];?>">
-                  <label>Nama Kampus</label>
-                  <input name="nama_kampus" class="form-control" value="<?php echo $data['nama_kampus'];?>">
-                  <label>Alamat</label>
-                  <textarea name="alamat" class="form-control"><?php echo $data['alamat'];?></textarea>
-                  <label>Password</label>
-                  <input type="password" name="password" class="form-control"><hr>
-                  <input type="submit" name="submitdata" class="btn btn-primary" style="width: 100%">
-                </form>
-                <?php } ?>
-              </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
     <!--Warning-->
     <div class="modal fade" id="Warning">
       <div class="modal-dialog">
@@ -221,22 +185,6 @@ if (!isset($_SESSION['login'])) {
       </div>
     </div>
     <!--End of Warning-->
-
-    <script>
-      $(document).ready(function(){
-        $('#EditPesertaModal').on('show.bs.modal',function(e){
-          var rowid = $(e.relatedTarget).data('id');
-          $.ajax({
-            type    : 'post',
-            url     : '../Proses/updatedatakelas.php',
-            data    : 'id_peserta='+rowid,
-            success : function(data){
-              $('.editpeserta').html(data);
-            }
-          });
-        });
-      });
-    </script>
 </div>
   </body>
 </html>
