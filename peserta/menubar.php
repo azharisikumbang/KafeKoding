@@ -15,7 +15,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="main.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a
+            <span>Main Page</span></a
           >
         </li>
 
@@ -40,7 +40,7 @@
         <li class="nav-item ml-1">
           <a href="Kelas.php" class="nav-link">
             <i class="fas fa-user"></i>
-            <span>Kelas</span>
+            <span>Daftar Kelas</span>
           </a> 
         </li>
       </ul>
