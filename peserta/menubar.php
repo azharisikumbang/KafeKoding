@@ -39,7 +39,7 @@
         <hr class="sidebar-divider d-none d-md-block" />
         <li class="nav-item ml-1">
           <a href="Kelas.php" class="nav-link">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-add"></i>
             <span>Daftar Kelas</span>
           </a> 
         </li>
